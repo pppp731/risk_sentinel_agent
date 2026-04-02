@@ -1,0 +1,6 @@
+flask==3.0.0
+requests==2.31.0
+textblob==0.17.1
+newsapi-python==0.2.7
+feedparser==6.0.11
+python-dateutil==2.9.0

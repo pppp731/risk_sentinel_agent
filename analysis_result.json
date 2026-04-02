@@ -1,0 +1,152 @@
+[
+  {
+    "platform": "demo",
+    "content": "IF椰子水真的很好喝，回购好几次了！",
+    "author": "user_0",
+    "published_at": "2026-04-01T13:55:54.502435",
+    "sentiment": "正面",
+    "sentiment_detail": {
+      "label": "正面",
+      "score": 0.6,
+      "confidence": 0.8
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "买了IF椰子水，感觉甜得不太正常，怀疑加了糖",
+    "author": "user_1",
+    "published_at": "2026-04-01T13:55:54.503466",
+    "sentiment": "中性",
+    "sentiment_detail": {
+      "label": "中性",
+      "score": 0.0,
+      "confidence": 0.0
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "客服说是100%纯椰子水，但喝了血糖确实升高了",
+    "author": "user_2",
+    "published_at": "2026-04-01T13:55:54.503466",
+    "sentiment": "中性",
+    "sentiment_detail": {
+      "label": "中性",
+      "score": 0.0,
+      "confidence": 0.0
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "一直在喝IF，感觉还不错，希望不是假的",
+    "author": "user_3",
+    "published_at": "2026-04-01T13:55:54.503466",
+    "sentiment": "正面",
+    "sentiment_detail": {
+      "label": "正面",
+      "score": 0.3,
+      "confidence": 0.4
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "看到有人说掺糖，不知道该信谁了",
+    "author": "user_4",
+    "published_at": "2026-04-01T13:55:54.503466",
+    "sentiment": "负面",
+    "sentiment_detail": {
+      "label": "负面",
+      "score": -0.3,
+      "confidence": 0.4
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "官方发了检测报告，应该是真的吧",
+    "author": "user_5",
+    "published_at": "2026-04-01T13:55:54.503466",
+    "sentiment": "中性",
+    "sentiment_detail": {
+      "label": "中性",
+      "score": 0.0,
+      "confidence": 0.0
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "避雷！这个椰子水太甜了，不是纯的",
+    "author": "user_6",
+    "published_at": "2026-04-01T13:55:54.503466",
+    "sentiment": "负面",
+    "sentiment_detail": {
+      "label": "负面",
+      "score": -0.3,
+      "confidence": 0.4
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "孕妇慎喝，血糖会升高",
+    "author": "user_7",
+    "published_at": "2026-04-01T13:55:54.504468",
+    "sentiment": "中性",
+    "sentiment_detail": {
+      "label": "中性",
+      "score": 0.0,
+      "confidence": 0.0
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "性价比挺高的，比VitaCoco便宜",
+    "author": "user_8",
+    "published_at": "2026-04-01T13:55:54.504468",
+    "sentiment": "正面",
+    "sentiment_detail": {
+      "label": "正面",
+      "score": 0.3,
+      "confidence": 0.4
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  },
+  {
+    "platform": "demo",
+    "content": "味道怪怪的，跟新鲜椰子不一样",
+    "author": "user_9",
+    "published_at": "2026-04-01T13:55:54.504468",
+    "sentiment": "中性",
+    "sentiment_detail": {
+      "label": "中性",
+      "score": 0.0,
+      "confidence": 0.0
+    },
+    "likes": 0,
+    "comments": 0,
+    "source": "manual_import"
+  }
+]

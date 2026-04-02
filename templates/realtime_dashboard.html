@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时舆情监控 | Real-time Risk Monitor</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --accent-cyan: #00f5d4;
+            --accent-pink: #ff006e;
+            --accent-yellow: #fee440;
+            --accent-red: #ef233c;
+            --text-primary: #e0e0e0;
+            --text-secondary: #8888a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 动态背景 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 245, 212, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 245, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 头部 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 245, 212, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .brand h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-red);
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.connected {
+            background: #00c853;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* 控制面板 */
+        .control-panel {
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .control-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .control-input {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            color: var(--text-primary);
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: 'Space Mono', monospace;
+            min-width: 200px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: rgba(0, 245, 212, 0.1);
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-danger {
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        /* 指标卡片 */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .metric-change {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .metric-change.up {
+            color: var(--accent-red);
+        }
+
+        .metric-change.down {
+            color: #00c853;
+        }
+
+        /* 主要内容区 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 245, 212, 0.2);
+        }
+
+        .panel-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* 实时流 */
+        .stream-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .stream-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-cyan);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .stream-item.alert-critical {
+            border-left-color: var(--accent-pink);
+            background: rgba(255, 0, 110, 0.1);
+        }
+
+        .stream-item.alert-high {
+            border-left-color: var(--accent-red);
+            background: rgba(239, 35, 60, 0.1);
+        }
+
+        .stream-time {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .stream-content {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .stream-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-left: 10px;
+        }
+
+        .badge-risk {
+            background: rgba(239, 35, 60, 0.2);
+            color: var(--accent-red);
+            border: 1px solid var(--accent-red);
+        }
+
+        /* 图表容器 */
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        /* 日志区域 */
+        .log-container {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            height: 200px;
+            overflow-y: auto;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .log-entry {
+            margin-bottom: 5px;
+            padding: 3px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .log-time {
+            color: var(--accent-cyan);
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 245, 212, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 245, 212, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header>
+            <div class="brand">
+                <h1>REAL-TIME RISK MONITOR</h1>
+            </div>
+            <div class="connection-status">
+                <span>系统状态:</span>
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">断开连接</span>
+            </div>
+        </header>
+
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <div class="control-group">
+                <label class="control-label">监控关键词</label>
+                <input type="text" class="control-input" id="keywordInput" value="IF椰子水">
+            </div>
+            <div class="control-group">
+                <label class="control-label">监控间隔(分钟)</label>
+                <input type="number" class="control-input" id="intervalInput" value="5" min="1" max="60">
+            </div>
+            <button class="btn" id="startBtn" onclick="startMonitoring()">启动监控</button>
+            <button class="btn btn-danger" id="stopBtn" onclick="stopMonitoring()" disabled>停止监控</button>
+        </div>
+
+        <!-- 指标卡片 -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">实时采集数据</div>
+                <div class="metric-value" id="totalPosts">0</div>
+                <div class="metric-change" id="postsChange">等待数据...</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">当前风险评分</div>
+                <div class="metric-value" id="riskScore">--</div>
+                <div class="metric-change" id="riskLevel">未监控</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">预警数量</div>
+                <div class="metric-value" id="alertCount">0</div>
+                <div class="metric-change" id="alertStatus">正常</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">监控运行时间</div>
+                <div class="metric-value" id="runtime">00:00</div>
+                <div class="metric-change">持续运行中</div>
+            </div>
+        </div>
+
+        <!-- 主要内容区 -->
+        <div class="main-grid">
+            <!-- 实时预警流 -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">实时预警流 // REAL-TIME ALERTS</span>
+                </div>
+                <div class="stream-container" id="alertStream">
+                    <div class="stream-item">
+                        <div class="stream-time">等待监控启动...</div>
+                        <div class="stream-content">点击"启动监控"开始实时舆情监控</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 实时数据流 -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">数据流入 // DATA STREAM</span>
+                </div>
+                <div class="stream-container" id="dataStream">
+                    <div class="stream-item">
+                        <div class="stream-time">等待数据...</div>
+                        <div class="stream-content">新的舆情数据将实时显示在这里</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 趋势图表 -->
+        <div class="main-grid">
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">情感趋势 // SENTIMENT TREND</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">风险分布 // RISK DISTRIBUTION</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="riskChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 系统日志 -->
+        <div class="panel">
+            <div class="panel-header">
+                <span class="panel-title">系统日志 // SYSTEM LOG</span>
+            </div>
+            <div class="log-container" id="logContainer">
+                <div class="log-entry"><span class="log-time">[SYSTEM]</span> 系统初始化完成</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // WebSocket连接
+        const socket = io('http://localhost:5000/monitor');
+
+        // 状态管理
+        let isMonitoring = false;
+        let monitoringStartTime = null;
+        let totalPosts = 0;
+        let alertCount = 0;
+        let runtimeInterval = null;
+
+        // 图表实例
+        let sentimentChart = null;
+        let riskChart = null;
+
+        // 连接状态处理
+        socket.on('connect', function() {
+            document.getElementById('statusDot').classList.add('connected');
+            document.getElementById('statusText').textContent = '已连接';
+            log('WebSocket连接成功');
+        });
+
+        socket.on('disconnect', function() {
+            document.getElementById('statusDot').classList.remove('connected');
+            document.getElementById('statusText').textContent = '断开连接';
+            log('WebSocket连接断开');
+        });
+
+        // 监听实时数据
+        socket.on('new_data', function(data) {
+            log(`收到新数据: ${data.new_posts_count} 条帖子`);
+            updateMetrics(data);
+            addDataStreamItem(data);
+        });
+
+        socket.on('new_alert', function(alert) {
+            log(`新预警: [${alert.level.toUpperCase()}] ${alert.message}`);
+            addAlertStreamItem(alert);
+            alertCount++;
+            document.getElementById('alertCount').textContent = alertCount;
+        });
+
+        socket.on('data_update', function(data) {
+            totalPosts += data.post_count;
+            document.getElementById('totalPosts').textContent = totalPosts;
+            document.getElementById('postsChange').textContent = `+${data.post_count} 条新数据`;
+
+            if (data.analysis) {
+                const score = data.analysis.average_risk_score;
+                document.getElementById('riskScore').textContent = score.toFixed(1);
+                document.getElementById('riskLevel').textContent = data.analysis.overall_risk_level;
+            }
+
+            updateCharts(data);
+        });
+
+        // 启动监控
+        function startMonitoring() {
+            const keyword = document.getElementById('keywordInput').value;
+            const interval = parseInt(document.getElementById('intervalInput').value);
+
+            socket.emit('start_monitoring', {
+                keyword: keyword,
+                interval_minutes: interval
+            });
+
+            isMonitoring = true;
+            monitoringStartTime = Date.now();
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+
+            // 启动运行时间计时
+            runtimeInterval = setInterval(updateRuntime, 1000);
+
+            log(`启动监控: 关键词"${keyword}", 间隔${interval}分钟`);
+        }
+
+        // 停止监控
+        function stopMonitoring() {
+            socket.emit('stop_monitoring', {});
+
+            isMonitoring = false;
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+
+            if (runtimeInterval) {
+                clearInterval(runtimeInterval);
+            }
+
+            log('停止监控');
+        }
+
+        // 更新运行时间显示
+        function updateRuntime() {
+            if (!monitoringStartTime) return;
+
+            const elapsed = Math.floor((Date.now() - monitoringStartTime) / 1000);
+            const minutes = Math.floor(elapsed / 60).toString().padStart(2, '0');
+            const seconds = (elapsed % 60).toString().padStart(2, '0');
+            document.getElementById('runtime').textContent = `${minutes}:${seconds}`;
+        }
+
+        // 添加预警到流
+        function addAlertStreamItem(alert) {
+            const stream = document.getElementById('alertStream');
+            const item = document.createElement('div');
+            item.className = `stream-item alert-${alert.level}`;
+            item.innerHTML = `
+                <div class="stream-time">${new Date(alert.timestamp).toLocaleTimeString()}</div>
+                <div class="stream-content">
+                    [${alert.level.toUpperCase()}] ${alert.message}
+                    <span class="stream-badge badge-risk">风险分: ${alert.risk_score}</span>
+                </div>
+            `;
+            stream.insertBefore(item, stream.firstChild);
+
+            // 保持最多20条
+            while (stream.children.length > 20) {
+                stream.removeChild(stream.lastChild);
+            }
+        }
+
+        // 添加数据到流
+        function addDataStreamItem(data) {
+            const stream = document.getElementById('dataStream');
+            const item = document.createElement('div');
+            item.className = 'stream-item';
+            item.innerHTML = `
+                <div class="stream-time">${new Date(data.timestamp).toLocaleTimeString()}</div>
+                <div class="stream-content">
+                    采集到 ${data.new_posts_count} 条新数据
+                    ${data.analysis ? `| 风险评分: ${data.analysis.average_risk_score.toFixed(1)}` : ''}
+                </div>
+            `;
+            stream.insertBefore(item, stream.firstChild);
+
+            while (stream.children.length > 20) {
+                stream.removeChild(stream.lastChild);
+            }
+        }
+
+        // 更新指标
+        function updateMetrics(data) {
+            totalPosts += data.new_posts_count;
+            document.getElementById('totalPosts').textContent = totalPosts;
+
+            if (data.analysis) {
+                const score = data.analysis.average_risk_score;
+                document.getElementById('riskScore').textContent = score.toFixed(1);
+            }
+        }
+
+        // 添加日志
+        function log(message) {
+            const container = document.getElementById('logContainer');
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="log-time">[${new Date().toLocaleTimeString()}]</span> ${message}`;
+            container.insertBefore(entry, container.firstChild);
+
+            while (container.children.length > 50) {
+                container.removeChild(container.lastChild);
+            }
+        }
+
+        // 初始化图表
+        function initCharts() {
+            // 情感趋势图
+            const sentimentCtx = document.getElementById('sentimentChart').getContext('2d');
+            sentimentChart = new Chart(sentimentCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: '正面',
+                            data: [],
+                            borderColor: '#00c853',
+                            backgroundColor: 'rgba(0, 200, 83, 0.1)',
+                            fill: true
+                        },
+                        {
+                            label: '负面',
+                            data: [],
+                            borderColor: '#ef233c',
+                            backgroundColor: 'rgba(239, 35, 60, 0.1)',
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0, 245, 212, 0.1)' },
+                            ticks: { color: '#8888a0' }
+                        },
+                        x: {
+                            grid: { color: 'rgba(0, 245, 212, 0.1)' },
+                            ticks: { color: '#8888a0' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#e0e0e0' }
+                        }
+                    }
+                }
+            });
+
+            // 风险分布图
+            const riskCtx = document.getElementById('riskChart').getContext('2d');
+            riskChart = new Chart(riskCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        data: [],
+                        backgroundColor: ['#00f5d4', '#ff006e', '#fee440', '#ef233c', '#8888a0'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: '#e0e0e0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 更新图表
+        function updateCharts(data) {
+            if (!data.analysis) return;
+
+            // 更新情感趋势
+            const sentimentDist = data.analysis.sentiment_distribution;
+            if (sentimentDist) {
+                const now = new Date().toLocaleTimeString();
+                sentimentChart.data.labels.push(now);
+                sentimentChart.data.datasets[0].data.push(sentimentDist['正面'] || 0);
+                sentimentChart.data.datasets[1].data.push(sentimentDist['负面'] || 0);
+
+                // 保持最多20个点
+                if (sentimentChart.data.labels.length > 20) {
+                    sentimentChart.data.labels.shift();
+                    sentimentChart.data.datasets[0].data.shift();
+                    sentimentChart.data.datasets[1].data.shift();
+                }
+                sentimentChart.update();
+            }
+
+            // 更新风险分布
+            const riskTypes = data.analysis.risk_type_summary;
+            if (riskTypes) {
+                riskChart.data.labels = Object.keys(riskTypes);
+                riskChart.data.datasets[0].data = Object.values(riskTypes).map(r => r.count);
+                riskChart.update();
+            }
+        }
+
+        // 页面加载时初始化
+        window.onload = function() {
+            initCharts();
+            log('系统就绪，等待启动监控');
+        };
+    </script>
+</body>
+</html>
