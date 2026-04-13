@@ -11,13 +11,12 @@ NEWSAPI_KEY = "your_newsapi_key_here"
 # GNews API 密钥（国内可访问）
 # 1. 访问 https://gnews.io/ 注册免费账号
 # 2. 获取 API Key（免费版 100 次/天）
-GNEWS_API_KEY = "your_gnews_api_key_here"
+GNEWS_API_KEY = "fd423a72e313b3e14c485b09ced4c6a5"
 
 # ==================== 搜索配置 ====================
 
-# 目标公司名称（支持多个关键词，用 OR 连接）
-# 当前针对"椰子水掺水掺糖"事件进行专项监控
-COMPANY_KEYWORDS = "IF Coconut Water OR IF coconut OR coconut water adulteration OR coconut water sugar OR 椰子水 掺水 OR 椰子水 糖"
+# 目标公司名称（GNews 简单查询效果更好）
+COMPANY_KEYWORDS = "coconut water"
 
 # 新闻语言 (en=英文, zh=中文)
 LANGUAGE = "en"

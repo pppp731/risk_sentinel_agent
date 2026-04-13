@@ -134,17 +134,12 @@ class GNewsSource(BaseNewsSource):
 
     def fetch(self, days_back: int = 30) -> List[Dict]:
         if self.api_key == "your_gnews_api_key_here":
-            print(f"[{self.name}] API 密钥未设置，跳过")
+            print(f"[{self.name}] API key not set, skipping")
             return []
-
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=days_back)
 
         params = {
             "q": COMPANY_KEYWORDS,
             "lang": LANGUAGE,
-            "from": start_date.strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "to": end_date.strftime("%Y-%m-%dT%H:%M:%SZ"),
             "max": MAX_RESULTS_PER_SOURCE,
             "token": self.api_key
         }

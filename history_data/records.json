@@ -1,5 +1,21 @@
 [
   {
+    "id": "20260413_220633",
+    "timestamp": "2026-04-13T22:06:33.966188",
+    "keyword": "IF椰子水",
+    "total_articles": 125,
+    "risky_articles": 28,
+    "risk_score": 65.7,
+    "risk_level": "高风险",
+    "sentiment_distribution": {
+      "正面": 39,
+      "负面": 9,
+      "中性": 77
+    },
+    "summary": "高风险，共发现125条信息，其中28条存在风险，主要风险：供应链风险",
+    "has_details": true
+  },
+  {
     "id": "20260413_190759",
     "timestamp": "2026-04-13T19:07:59.252457",
     "keyword": "IF椰子水",
