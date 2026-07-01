@@ -1,98 +1,692 @@
 [
   {
-    "id": "20260413_220633",
-    "timestamp": "2026-04-13T22:06:33.966188",
+    "id": "20260620_004257",
+    "timestamp": "2026-06-20T00:42:57.475743",
     "keyword": "IF椰子水",
-    "total_articles": 125,
-    "risky_articles": 28,
-    "risk_score": 65.7,
+    "total_articles": 52,
+    "risky_articles": 21,
+    "risk_score": 72.7,
     "risk_level": "高风险",
     "sentiment_distribution": {
-      "正面": 39,
-      "负面": 9,
-      "中性": 77
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
     },
-    "summary": "高风险，共发现125条信息，其中28条存在风险，主要风险：供应链风险",
+    "summary": "高风险，共发现52条信息，其中21条存在风险，主要风险：供应链风险",
     "has_details": true
   },
   {
-    "id": "20260413_190759",
-    "timestamp": "2026-04-13T19:07:59.252457",
+    "id": "20260620_004256",
+    "timestamp": "2026-06-20T00:42:56.988123",
     "keyword": "IF椰子水",
-    "total_articles": 65,
-    "risky_articles": 11,
-    "risk_score": 65.2,
+    "total_articles": 52,
+    "risky_articles": 21,
+    "risk_score": 72.7,
     "risk_level": "高风险",
     "sentiment_distribution": {
-      "正面": 14,
-      "负面": 6,
-      "中性": 45
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
     },
-    "summary": "高风险，共发现65条信息，其中11条存在风险，主要风险：供应链风险",
+    "summary": "高风险，共发现52条信息，其中21条存在风险，主要风险：供应链风险",
     "has_details": true
   },
   {
-    "id": "20260413_154115",
-    "timestamp": "2026-04-13T15:41:15.097318",
+    "id": "alert_alert_20260620_003833_604147",
+    "type": "alert",
+    "timestamp": "2026-06-20T00:38:33.604147",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260620_003829_792375",
+    "type": "alert",
+    "timestamp": "2026-06-20T00:38:29.792375",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260620_003754_694447",
+    "type": "alert",
+    "timestamp": "2026-06-20T00:37:54.695686",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260620_003751_169685",
+    "type": "alert",
+    "timestamp": "2026-06-20T00:37:51.169685",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260620_003749_517681",
+    "type": "alert",
+    "timestamp": "2026-06-20T00:37:49.517681",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260620_003746_194687",
+    "type": "alert",
+    "timestamp": "2026-06-20T00:37:46.194687",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260620_003724_789288",
+    "type": "alert",
+    "timestamp": "2026-06-20T00:37:24.789288",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "alert_alert_20260620_003721_449750",
+    "type": "alert",
+    "timestamp": "2026-06-20T00:37:21.449750",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "20260619_180820",
+    "timestamp": "2026-06-19T18:08:20.187361",
     "keyword": "IF椰子水",
-    "total_articles": 15,
-    "risky_articles": 3,
+    "total_articles": 52,
+    "risky_articles": 22,
     "risk_score": 73.0,
     "risk_level": "高风险",
     "sentiment_distribution": {
-      "正面": 2,
-      "负面": 1,
-      "中性": 12
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
     },
-    "summary": "高风险，共发现15条信息，其中3条存在风险，主要风险：供应链风险",
+    "summary": "高风险，共发现52条信息，其中22条存在风险，主要风险：供应链风险",
     "has_details": true
   },
   {
-    "id": "20260413_151147",
-    "timestamp": "2026-04-13T15:11:47.000300",
+    "id": "20260619_180815",
+    "timestamp": "2026-06-19T18:08:15.462814",
     "keyword": "IF椰子水",
-    "total_articles": 30,
-    "risky_articles": 1,
-    "risk_score": 54.0,
-    "risk_level": "中风险",
-    "sentiment_distribution": {
-      "正面": 4,
-      "负面": 1,
-      "中性": 25
-    },
-    "summary": "中风险，共分析30条信息",
-    "has_details": true
-  },
-  {
-    "id": "20260413_150228",
-    "timestamp": "2026-04-13T15:02:28.398627",
-    "keyword": "IF椰子水",
-    "total_articles": 50,
-    "risky_articles": 6,
-    "risk_score": 58.5,
-    "risk_level": "中风险",
-    "sentiment_distribution": {
-      "正面": 11,
-      "负面": 3,
-      "中性": 36
-    },
-    "summary": "中风险，共发现50条信息，其中6条存在风险，主要风险：财务风险",
-    "has_details": true
-  },
-  {
-    "id": "20260413_145053",
-    "timestamp": "2026-04-13T14:50:53.347661",
-    "keyword": "IF椰子水",
-    "total_articles": 55,
-    "risky_articles": 8,
-    "risk_score": 64.5,
+    "total_articles": 52,
+    "risky_articles": 22,
+    "risk_score": 73.0,
     "risk_level": "高风险",
     "sentiment_distribution": {
-      "正面": 9,
-      "负面": 3,
-      "中性": 43
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
     },
-    "summary": "高风险，共发现55条信息，其中8条存在风险，主要风险：供应链风险",
+    "summary": "高风险，共发现52条信息，其中22条存在风险，主要风险：供应链风险",
     "has_details": true
+  },
+  {
+    "id": "alert_alert_20260619_180559_484678",
+    "type": "alert",
+    "timestamp": "2026-06-19T18:05:59.484678",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260619_180555_591573",
+    "type": "alert",
+    "timestamp": "2026-06-19T18:05:55.591573",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260619_180528_213049",
+    "type": "alert",
+    "timestamp": "2026-06-19T18:05:28.213049",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260619_180523_649442",
+    "type": "alert",
+    "timestamp": "2026-06-19T18:05:23.649442",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260619_180523_591084",
+    "type": "alert",
+    "timestamp": "2026-06-19T18:05:23.591084",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260619_180518_975809",
+    "type": "alert",
+    "timestamp": "2026-06-19T18:05:18.975809",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260619_180500_334106",
+    "type": "alert",
+    "timestamp": "2026-06-19T18:05:00.334106",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "alert_alert_20260619_180455_935687",
+    "type": "alert",
+    "timestamp": "2026-06-19T18:04:55.935687",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "20260619_174452",
+    "timestamp": "2026-06-19T17:44:52.085170",
+    "keyword": "IF椰子水",
+    "total_articles": 52,
+    "risky_articles": 22,
+    "risk_score": 73.0,
+    "risk_level": "高风险",
+    "sentiment_distribution": {
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
+    },
+    "summary": "高风险，共发现52条信息，其中22条存在风险，主要风险：供应链风险",
+    "has_details": true
+  },
+  {
+    "id": "20260619_174443",
+    "timestamp": "2026-06-19T17:44:43.507571",
+    "keyword": "IF椰子水",
+    "total_articles": 52,
+    "risky_articles": 22,
+    "risk_score": 73.0,
+    "risk_level": "高风险",
+    "sentiment_distribution": {
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
+    },
+    "summary": "高风险，共发现52条信息，其中22条存在风险，主要风险：供应链风险",
+    "has_details": true
+  },
+  {
+    "id": "alert_alert_20260619_174227_065348",
+    "type": "alert",
+    "timestamp": "2026-06-19T17:42:27.066522",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260619_174219_146112",
+    "type": "alert",
+    "timestamp": "2026-06-19T17:42:19.147266",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260619_174154_015372",
+    "type": "alert",
+    "timestamp": "2026-06-19T17:41:54.015372",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260619_174148_982437",
+    "type": "alert",
+    "timestamp": "2026-06-19T17:41:48.982437",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260619_174145_476988",
+    "type": "alert",
+    "timestamp": "2026-06-19T17:41:45.476988",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260619_174140_780989",
+    "type": "alert",
+    "timestamp": "2026-06-19T17:41:40.780989",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260619_174125_849351",
+    "type": "alert",
+    "timestamp": "2026-06-19T17:41:25.849351",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "alert_alert_20260619_174117_201405",
+    "type": "alert",
+    "timestamp": "2026-06-19T17:41:17.201405",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "20260619_140504",
+    "timestamp": "2026-06-19T14:05:04.624597",
+    "keyword": "IF椰子水",
+    "total_articles": 52,
+    "risky_articles": 22,
+    "risk_score": 73.0,
+    "risk_level": "高风险",
+    "sentiment_distribution": {
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
+    },
+    "summary": "高风险，共发现52条信息，其中22条存在风险，主要风险：供应链风险",
+    "has_details": true
+  },
+  {
+    "id": "20260619_140504",
+    "timestamp": "2026-06-19T14:05:04.099538",
+    "keyword": "IF椰子水",
+    "total_articles": 52,
+    "risky_articles": 22,
+    "risk_score": 73.0,
+    "risk_level": "高风险",
+    "sentiment_distribution": {
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
+    },
+    "summary": "高风险，共发现52条信息，其中22条存在风险，主要风险：供应链风险",
+    "has_details": true
+  },
+  {
+    "id": "alert_alert_20260619_140247_619539",
+    "type": "alert",
+    "timestamp": "2026-06-19T14:02:47.619539",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260619_140247_580925",
+    "type": "alert",
+    "timestamp": "2026-06-19T14:02:47.580925",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260619_140215_540275",
+    "type": "alert",
+    "timestamp": "2026-06-19T14:02:15.540275",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260619_140214_849987",
+    "type": "alert",
+    "timestamp": "2026-06-19T14:02:14.849987",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260619_140210_150802",
+    "type": "alert",
+    "timestamp": "2026-06-19T14:02:10.150802",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260619_140210_080724",
+    "type": "alert",
+    "timestamp": "2026-06-19T14:02:10.081908",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260619_140147_070397",
+    "type": "alert",
+    "timestamp": "2026-06-19T14:01:47.070397",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "alert_alert_20260619_140147_070397",
+    "type": "alert",
+    "timestamp": "2026-06-19T14:01:47.070397",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "20260618_201145",
+    "timestamp": "2026-06-18T20:11:45.669437",
+    "keyword": "IF椰子水",
+    "total_articles": 54,
+    "risky_articles": 24,
+    "risk_score": 71.2,
+    "risk_level": "高风险",
+    "sentiment_distribution": {
+      "正面": 28,
+      "负面": 16,
+      "中性": 10
+    },
+    "summary": "高风险，共发现54条信息，其中24条存在风险，主要风险：供应链风险",
+    "has_details": true
+  },
+  {
+    "id": "alert_alert_20260618_200908_201811",
+    "type": "alert",
+    "timestamp": "2026-06-18T20:09:08.201811",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260618_200820_934116",
+    "type": "alert",
+    "timestamp": "2026-06-18T20:08:20.934116",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260618_200814_357579",
+    "type": "alert",
+    "timestamp": "2026-06-18T20:08:14.357579",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "20260618_200806",
+    "timestamp": "2026-06-18T20:08:06.659918",
+    "keyword": "IF椰子水",
+    "total_articles": 54,
+    "risky_articles": 24,
+    "risk_score": 71.2,
+    "risk_level": "高风险",
+    "sentiment_distribution": {
+      "正面": 28,
+      "负面": 16,
+      "中性": 10
+    },
+    "summary": "高风险，共发现54条信息，其中24条存在风险，主要风险：供应链风险",
+    "has_details": true
+  },
+  {
+    "id": "alert_alert_20260618_200743_080645",
+    "type": "alert",
+    "timestamp": "2026-06-18T20:07:43.080645",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
+  },
+  {
+    "id": "alert_alert_20260618_195942_751536",
+    "type": "alert",
+    "timestamp": "2026-06-18T19:59:42.751536",
+    "severity": "高",
+    "title": "竞品趁虚而入：Vita Coco借IF危机抢占市场",
+    "source": "Food Dive",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 竞品趁虚而入：Vita Coco借IF危机抢占市场..."
+  },
+  {
+    "id": "alert_alert_20260618_195847_278233",
+    "type": "alert",
+    "timestamp": "2026-06-18T19:58:47.278233",
+    "severity": "高",
+    "title": "市场监管部门介入调查IF椰子水",
+    "source": "市场监管报",
+    "sentiment_polarity": 0.939,
+    "matched_keywords": [
+      "调查",
+      "监管"
+    ],
+    "summary": "[高风险预警] 市场监管部门介入调查IF椰子水..."
+  },
+  {
+    "id": "alert_alert_20260618_195833_010770",
+    "type": "alert",
+    "timestamp": "2026-06-18T19:58:33.010770",
+    "severity": "高",
+    "title": "IF椰子水启动产品召回 涉事批次覆盖3个省份",
+    "source": "市场监管总局",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "召回"
+    ],
+    "summary": "[高风险预警] IF椰子水启动产品召回 涉事批次覆盖3个省份..."
+  },
+  {
+    "id": "alert_alert_20260618_195745_425422",
+    "type": "alert",
+    "timestamp": "2026-06-18T19:57:45.426445",
+    "severity": "高",
+    "title": "行业分析：IF椰子水危机对功能饮料市场的影响",
+    "source": "Beverage Daily",
+    "sentiment_polarity": 1.0,
+    "matched_keywords": [
+      "危机"
+    ],
+    "summary": "[高风险预警] 行业分析：IF椰子水危机对功能饮料市场的影响..."
   }
 ]

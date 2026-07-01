@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-06-20T00:46:33.772262",
+  "news": {
+    "total": 52,
+    "risky": 21,
+    "avg_score": 72.7,
+    "level": "高风险",
+    "sentiment": {
+      "正面": 27,
+      "负面": 16,
+      "中性": 9
+    }
+  },
+  "quant": {
+    "EL": 42.353,
+    "PD": 0.386,
+    "VaR": 0.999,
+    "weighted_EL": 43.45,
+    "risk_band": "high",
+    "fin_multiplier": 1.8
+  },
+  "ecom": {
+    "avg_rating": 4.5,
+    "sales_change": -15.8,
+    "neg_ratio": 0.11,
+    "alert_count": 3
+  },
+  "enterprise": {
+    "risk_score": 59.0,
+    "alert_count": 5
+  },
+  "financial": {
+    "price": 13.3,
+    "fin_risk_score": 92,
+    "anomaly_count": 6
+  },
+  "policy": {
+    "risk_score": 90,
+    "critical_gaps": 2,
+    "imminent_deadlines": 1
+  }
+}
